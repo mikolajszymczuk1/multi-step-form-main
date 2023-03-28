@@ -21,9 +21,10 @@ module.exports = {
     }
   ],
   parser: 'vue-eslint-parser',
-  plugins: ["@typescript-eslint"],
   parserOptions: {
     ecmaVersion: 'latest',
-    project: './tsconfig.json',
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    project: './tsconfig.json'
   }
 }
