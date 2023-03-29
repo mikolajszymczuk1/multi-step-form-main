@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
@@ -14,25 +14,25 @@ module.exports = {
   overrides: [
     {
       files: [
-        'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'
+        'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
       ],
       extends: [
-        'plugin:cypress/recommended'
+        'plugin:cypress/recommended',
       ],
-      files: ['*.ts', '*.vue'],
       rules: {
         'no-undef': 'off',
       },
-    }
+    },
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
-    project: ['./tsconfig.json'],
+    project: ['tsconfig.eslint.json', 'tsconfig.json'],
+    tsconfigRootDir: __dirname,
   },
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
-}
+};

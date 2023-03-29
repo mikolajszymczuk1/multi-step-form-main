@@ -9,7 +9,6 @@
     "baseUrl": ".",
     "module": "ESNext",
     "target": "ESNext",
-    "allowJs": true,
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "esModuleInterop": true,
