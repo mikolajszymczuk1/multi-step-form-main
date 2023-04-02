@@ -1,22 +1,24 @@
 <template>
   <div class="multiStepFormWidget">
     <div class="multiStepFormWidget__topBanner">
-      <SingleStepLabel :step-number="1" label="YOUR INFO" active />
-      <SingleStepLabel :step-number="2" label="SELECT PLAN" />
-      <SingleStepLabel :step-number="3" label="ADD-ONS" />
-      <SingleStepLabel :step-number="4" label="SUMMARY" />
+      <SingleStepLabel step-id="personal-info" :step-number="1" label="YOUR INFO" />
+      <SingleStepLabel step-id="select-your-plan" :step-number="2" label="SELECT PLAN" />
+      <SingleStepLabel step-id="pick-addons" :step-number="3" label="ADD-ONS" />
+      <SingleStepLabel step-id="finishing-up" :step-number="4" label="SUMMARY" />
     </div>
 
     <div class="multiStepFormWidget__mainContainer">
-      <RouterView />
-    </div>
+      <div class="multiStepFormWidget__singleStepContainer">
+        <RouterView />
+      </div>
 
-    <div
-      class="multiStepFormWidget__bottomBar"
-      :class="isNotFirstStep ? 'multiStepFormWidget__bottomBar--space-between' : ''"
-    >
-      <StepButton v-if="isNotFirstStep" :go-to="prevStep">Go Back</StepButton>
-      <StepButton is-next :go-to="nextStep">Next Step</StepButton>
+      <div
+        class="multiStepFormWidget__bottomBar"
+        :class="isNotFirstStep ? 'multiStepFormWidget__bottomBar--space-between' : ''"
+      >
+        <StepButton v-if="isNotFirstStep" :go-to="prevStep">Go Back</StepButton>
+        <StepButton is-next :go-to="nextStep">Next Step</StepButton>
+      </div>
     </div>
   </div>
 </template>
@@ -80,6 +82,10 @@ const prevStep = computed<string>(() => {
   }
 
   &__mainContainer {
+
+  }
+
+  &__singleStepContainer {
     margin-bottom: 72px;
   }
 
