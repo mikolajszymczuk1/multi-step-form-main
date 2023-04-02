@@ -1,10 +1,10 @@
 <template>
 <div class="stepHeadingTextBlock">
-  <h1 class="stepHeadingTextBlock__title">
+  <h1 class="stepHeadingTextBlock__title" data-test="title">
     <slot name="title"></slot>
   </h1>
 
-  <p class="stepHeadingTextBlock__underTitleText">
+  <p class="stepHeadingTextBlock__underTitleText" data-test="text">
     <slot name="text"></slot>
   </p>
 </div>
