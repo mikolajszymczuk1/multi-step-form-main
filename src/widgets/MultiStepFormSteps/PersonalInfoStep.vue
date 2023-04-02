@@ -37,7 +37,11 @@ const { validate, meta } = useForm<PersonalInfoForm>({ validationSchema: persona
 
 onBeforeRouteLeave((to, from, next) => {
   validate();
-  meta.value.valid ? next() : next(false);
+  if (meta.value.valid) {
+    next();
+  } else {
+    next(false);
+  }
 });
 </script>
 

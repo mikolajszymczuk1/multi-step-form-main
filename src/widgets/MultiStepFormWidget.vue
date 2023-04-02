@@ -41,7 +41,7 @@ const isNotFirstStep = computed(() => route.path !== '/');
 /** Return next step name */
 const nextStep = computed<string>(() => {
   let next = '';
-  steps.forEach((step, index) => {
+  steps?.forEach((step, index) => {
     if (step.name === route.name && index !== steps.length - 1) {
       next = steps[index + 1].name as string;
     }
@@ -53,7 +53,7 @@ const nextStep = computed<string>(() => {
 /** Return prev step name */
 const prevStep = computed<string>(() => {
   let prev = '';
-  steps.forEach((step, index) => {
+  steps?.forEach((step, index) => {
     if (step.name === route.name && index !== 0) {
       prev = steps[index - 1].name as string;
     }
