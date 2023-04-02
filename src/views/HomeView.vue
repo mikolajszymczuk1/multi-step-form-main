@@ -1,9 +1,9 @@
 <template>
   <main>
-    <HelloWorld />
+    <MultiStepFormWidget />
   </main>
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '../components/HelloWorld.vue';
+import MultiStepFormWidget from '@/widgets/MultiStepFormWidget.vue';
 </script>

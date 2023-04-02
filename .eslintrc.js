@@ -35,4 +35,21 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
   ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+        extensions: ['.ts', '.vue', '.json'],
+      },
+      vue: {
+        extenstion: ['.vue'],
+      },
+      typescript: {},
+    },
+  },
+  rules: {
+    'import/no-unresolved': 'error',
+  },
 };
