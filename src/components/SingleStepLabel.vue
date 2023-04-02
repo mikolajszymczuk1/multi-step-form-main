@@ -1,7 +1,8 @@
 <template>
   <div
+    :id="stepId"
     class="singleStepLabel"
-    :class="active ? 'singleStepLabel--active' : ''"
+    :class="isActive ? 'singleStepLabel--active' : ''"
   >
     <div class="singleStepLabel__number" data-test="step-number">{{ stepNumber }}</div>
     <div class="singleStepLabel__wrapper">
@@ -12,7 +13,12 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const props = defineProps({
   stepNumber: {
     type: Number,
     default: 1,
@@ -21,11 +27,14 @@ defineProps({
     type: String,
     default: '',
   },
-  active: {
-    type: Boolean,
-    default: false,
+  stepId: {
+    type: String,
+    required: true,
   },
 });
+
+/** Return true if current path is equal to step id */
+const isActive = computed(() => route.name === props.stepId);
 </script>
 
 <style lang="scss" scoped>
@@ -46,6 +55,9 @@ defineProps({
 
     border: solid 1px $White;
     border-radius: 50%;
+    transition: background-color 300ms ease-in-out,
+                border-width 50ms ease-out,
+                color 300ms ease-in-out;
 
     font-size: .875rem;
     color: $White;
@@ -53,7 +65,7 @@ defineProps({
 
     #{ $self }--active & {
       background-color: $LightBlue;
-      border: 0;
+      border-width: 0;
 
       color: $MarineBlue;
     }
