@@ -3,10 +3,10 @@
     class="singleStepLabel"
     :class="active ? 'singleStepLabel--active' : ''"
   >
-    <div class="singleStepLabel__number">{{ stepNumber }}</div>
+    <div class="singleStepLabel__number" data-test="step-number">{{ stepNumber }}</div>
     <div class="singleStepLabel__wrapper">
-      <p class="singleStepLabel__stepText">STEP {{ stepNumber }}</p>
-      <p class="singleStepLabel__stepLabel">{{ label }}</p>
+      <p class="singleStepLabel__stepText" data-test="step-text">STEP {{ stepNumber }}</p>
+      <p class="singleStepLabel__stepLabel" data-test="step-label">{{ label }}</p>
     </div>
   </div>
 </template>
