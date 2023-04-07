@@ -52,5 +52,6 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'error',
     'max-len': ['error', { code: 120 }],
+    'no-spaced-func': 'off',
   },
 };
