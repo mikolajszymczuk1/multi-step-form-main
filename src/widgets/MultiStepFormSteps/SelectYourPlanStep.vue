@@ -17,6 +17,24 @@
         :is-yearly-mode="isYearlyMode"
       />
     </div>
+
+    <div class="selectYourPlanStep__bottomBar">
+      <p
+        class="selectYourPlanStep__barText"
+        :class="isYearlyMode ? '' : 'selectYourPlanStep__barText--highlight'"
+      >
+        Monthly
+      </p>
+
+      <PaymentModeButton @paymentMode="onChangePaymentMode" />
+
+      <p
+        class="selectYourPlanStep__barText"
+        :class="isYearlyMode ? 'selectYourPlanStep__barText--highlight' : ''"
+      >
+        Yearly
+      </p>
+    </div>
   </StepCard>
 </template>
 
@@ -26,6 +44,7 @@ import { ref, type Ref } from 'vue';
 import StepCard from '@/components/cards/StepCard.vue';
 import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';
 import StepRadioInput from '@/components/StepRadioInput.vue';
+import PaymentModeButton from '@/components/buttons/PaymentModeButton.vue';
 
 import arcadeIcon from '@/assets/svg/icon-arcade.svg';
 import advancedIcon from '@/assets/svg/icon-advanced.svg';
@@ -40,6 +59,12 @@ const radioButtonsData = [
 
 const selectedPlan: Ref<string> = ref('9mo');
 const isYearlyMode: Ref<boolean> = ref(false);
+
+/** Change payment mode value */
+const onChangePaymentMode = (value: boolean) => {
+  isYearlyMode.value = value;
+  selectedPlan.value = value ? '90yr' : '9mo';
+};
 </script>
 
 <style scoped lang="scss">
@@ -50,6 +75,32 @@ const isYearlyMode: Ref<boolean> = ref(false);
     row-gap: 12px;
 
     margin-top: 22px;
+  }
+
+  &__bottomBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 24px;
+
+    margin-top: 24px;
+
+    background-color: $Alabaster;
+    border-radius: 8px;
+
+    font-family: $ubuntu;
+  }
+
+  &__barText {
+    transition: color 150ms ease-in-out;
+
+    font-size: .875rem;
+    font-weight: 500;
+    color: $CoolBray;
+
+    &--highlight {
+      color: $MarineBlue;
+    }
   }
 }
 </style>

@@ -1,5 +1,11 @@
 <template>
-  <label class="stepRadioInput" :class="isChecked ? 'stepRadioInput--selected' : ''">
+  <label
+    class="stepRadioInput"
+    :class="[
+      isChecked ? 'stepRadioInput--selected' : '',
+      isYearlyMode ? 'stepRadioInput--flexStart' : ''
+    ]"
+  >
     <input
       class="stepRadioInput__input"
       type="radio"
@@ -16,7 +22,10 @@
     <div class="stepRadioInput__wrapper">
       <h3 class="stepRadioInput__inputTitle">{{ heading }}</h3>
       <p class="stepRadioInput__price">${{ price }}/{{ moYr }}</p>
-      <p v-if="isYearlyMode" class="stepRadioInput__monthsFree">2 months free</p>
+
+      <Transition enter-active-class="animate__animated animate__fadeIn animate__faster">
+        <p v-if="isYearlyMode" class="stepRadioInput__monthsFree">2 months free</p>
+      </Transition>
     </div>
   </label>
 </template>
@@ -92,10 +101,16 @@ const emitChangeValue = (e: Event) => {
 
   border-radius: 8px;
   border: 1px solid $LightBray;
+  transition: border-color 100ms ease-in-out,
+              background-color 100ms ease-in-out;
 
   &--selected {
     border-color: $PurplishBlue;
     background-color: $Alabaster;
+  }
+
+  &--flexStart {
+    align-items: flex-start;
   }
 
   &__input {
