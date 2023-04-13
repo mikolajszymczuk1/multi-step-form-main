@@ -5,11 +5,11 @@
       <template #text>Please provide your name, email address, and phone number.</template>
     </StepHeadingTextBlock>
 
-    <div class="personalInfoStep__inputsWrapper">
+    <StepInputsWrapper large-space>
       <StepTextInput label-text="Name" name="name" placeholder="e.g. Stephen King" />
       <StepTextInput label-text="Email Address" name="email" placeholder="e.g. stephenking@lorem.com" />
       <StepTextInput label-text="Phone Number" name="phone" placeholder="e.g. +1 234 567 890" />
-    </div>
+    </StepInputsWrapper>
   </StepCard>
 </template>
 
@@ -18,6 +18,7 @@ import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { onBeforeRouteLeave } from 'vue-router';
 import StepCard from '@/components/cards/StepCard.vue';
+import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
 import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';
 import StepTextInput from '@/components/StepTextInput.vue';
 
@@ -45,15 +46,3 @@ onBeforeRouteLeave((to, from, next) => {
   }
 });
 </script>
-
-<style scoped lang="scss">
-.personalInfoStep {
-  &__inputsWrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-
-    margin-top: 22px;
-  }
-}
-</style>

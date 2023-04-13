@@ -5,7 +5,7 @@
       <template #text>You have the option of monthly or yearly billing.</template>
     </StepHeadingTextBlock>
 
-    <div class="selectYourPlanStep__inputsWrapper">
+    <StepInputsWrapper>
       <StepRadioInput
         v-for="button in radioButtonsData"
         :key="button.icon"
@@ -16,7 +16,7 @@
         v-model="selectedPlan"
         :is-yearly-mode="isYearlyMode"
       />
-    </div>
+    </StepInputsWrapper>
 
     <div class="selectYourPlanStep__bottomBar">
       <p
@@ -42,6 +42,7 @@
 import { ref, type Ref } from 'vue';
 
 import StepCard from '@/components/cards/StepCard.vue';
+import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
 import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';
 import StepRadioInput from '@/components/StepRadioInput.vue';
 import PaymentModeButton from '@/components/buttons/PaymentModeButton.vue';
@@ -72,14 +73,6 @@ const onChangePaymentMode = (value: boolean) => {
 
 <style scoped lang="scss">
 .selectYourPlanStep {
-  &__inputsWrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-
-    margin-top: 22px;
-  }
-
   &__bottomBar {
     display: flex;
     align-items: center;
