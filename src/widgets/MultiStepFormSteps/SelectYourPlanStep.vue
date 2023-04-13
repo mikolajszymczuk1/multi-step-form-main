@@ -50,6 +50,9 @@ import arcadeIcon from '@/assets/svg/icon-arcade.svg';
 import advancedIcon from '@/assets/svg/icon-advanced.svg';
 import proIcon from '@/assets/svg/icon-pro.svg';
 
+const MONTHLY_DEFAULT_VALUE = '9mo';
+const YEARLY_DEFAULT_VALUE = '90yr';
+
 /** Radio buttons data */
 const radioButtonsData = [
   { icon: arcadeIcon, heading: 'Arcade', monthlyPrice: 9 },
@@ -57,13 +60,13 @@ const radioButtonsData = [
   { icon: proIcon, heading: 'Pro', monthlyPrice: 15 },
 ];
 
-const selectedPlan: Ref<string> = ref('9mo');
+const selectedPlan: Ref<string> = ref(MONTHLY_DEFAULT_VALUE);
 const isYearlyMode: Ref<boolean> = ref(false);
 
 /** Change payment mode value */
 const onChangePaymentMode = (value: boolean) => {
   isYearlyMode.value = value;
-  selectedPlan.value = value ? '90yr' : '9mo';
+  selectedPlan.value = value ? YEARLY_DEFAULT_VALUE : MONTHLY_DEFAULT_VALUE;
 };
 </script>
 
