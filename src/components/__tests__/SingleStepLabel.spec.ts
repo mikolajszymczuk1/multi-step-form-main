@@ -19,6 +19,7 @@ describe('SingleStepLabel.vue', () => {
 
     createComponent({
       props: {
+        stepId: 'personal-info',
         stepNumber: 5,
         label: 'Test Label',
       },

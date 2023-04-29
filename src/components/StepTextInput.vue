@@ -1,8 +1,18 @@
 <template>
   <div class="stepTextInput">
-    <label class="stepTextInput__label" :for="name">{{ labelText }}</label>
-    <input :id="name" class="stepTextInput__input" v-model="value" type="text" :name="name" :placeholder="placeholder">
-    <div class="stepTextInput__errorMessage">{{ errorMessage }}</div>
+    <label class="stepTextInput__label" :for="name" data-test="label">{{ labelText }}</label>
+
+    <input
+      :id="name"
+      class="stepTextInput__input"
+      v-model="value"
+      type="text"
+      :name="name"
+      :placeholder="placeholder"
+      data-test="input"
+    >
+
+    <div class="stepTextInput__errorMessage" data-test="message">{{ errorMessage }}</div>
   </div>
 </template>
 

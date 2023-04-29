@@ -13,18 +13,19 @@
       :value="`${price}${moYr}`"
       :checked="isChecked"
       @change="emitChangeValue"
+      data-test="input"
     >
 
     <div class="stepRadioInput__radioIcon">
-      <img class="stepRadioInput__icon" :src="iconPath" :alt="heading" :title="heading">
+      <img class="stepRadioInput__icon" :src="iconPath" :alt="heading" :title="heading" data-test="icon">
     </div>
 
     <div class="stepRadioInput__wrapper">
-      <h3 class="stepRadioInput__inputTitle">{{ heading }}</h3>
-      <p class="stepRadioInput__price">${{ price }}/{{ moYr }}</p>
+      <h3 class="stepRadioInput__inputTitle" data-test="heading">{{ heading }}</h3>
+      <p class="stepRadioInput__price" data-test="price">${{ price }}/{{ moYr }}</p>
 
       <Transition enter-active-class="animate__animated animate__fadeIn animate__faster">
-        <p v-if="isYearlyMode" class="stepRadioInput__monthsFree">2 months free</p>
+        <p v-if="isYearlyMode" class="stepRadioInput__monthsFree" data-test="free">2 months free</p>
       </Transition>
     </div>
   </label>
