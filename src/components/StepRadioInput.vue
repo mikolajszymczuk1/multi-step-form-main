@@ -10,7 +10,7 @@
       class="stepRadioInput__input"
       type="radio"
       :name="name"
-      :value="price"
+      :value="heading"
       :checked="isChecked"
       @change="emitChangeValue"
       data-test="input"
@@ -56,14 +56,17 @@ const props = defineProps({
     default: false,
   },
   modelValue: {
-    type: Number,
-    default: 0,
+    type: String,
+    default: '',
   },
 });
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: number): void
+  (e: 'update:modelValue', value: string): void
 }>();
+
+/** Return input value */
+const inputValue = computed<string>(() => props.heading);
 
 /** Return monthly or yearly price */
 const price = computed<number>(() => {
@@ -84,12 +87,12 @@ const moYr = computed<string>(() => {
 });
 
 /** Return true if modelValue is equal current input value */
-const isChecked = computed<boolean>(() => props.modelValue === price.value);
+const isChecked = computed<boolean>(() => props.modelValue === inputValue.value);
 
 /** Emit radio input value */
 const emitChangeValue = (e: Event) => {
   const target = e.target as HTMLInputElement;
-  emit('update:modelValue', Number(target.value));
+  emit('update:modelValue', target.value);
 };
 </script>
 
