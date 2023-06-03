@@ -42,7 +42,3 @@ watch(selectedAddons, (newVal) => {
   console.log(newVal);
 });
 </script>
-
-<style scoped lang="scss">
-
-</style>

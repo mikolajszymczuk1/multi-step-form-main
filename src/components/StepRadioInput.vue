@@ -10,7 +10,7 @@
       class="stepRadioInput__input"
       type="radio"
       :name="name"
-      :value="heading"
+      :value="inputValue"
       :checked="isChecked"
       @change="emitChangeValue"
       data-test="input"

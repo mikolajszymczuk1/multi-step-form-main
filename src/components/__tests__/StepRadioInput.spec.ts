@@ -17,15 +17,15 @@ describe('StepRadioInput.vue', () => {
       props: {
         iconPath: '/path/to/icon.svg',
         name: 'name',
-        heading: 'Heading',
+        heading: 'Advanced',
         monthlyPrice: 100,
       },
     });
 
     expect(findIcon().attributes('src')).toBe('/path/to/icon.svg');
     expect(findInput().attributes('name')).toBe('name');
-    expect(findInput().attributes('value')).toBe('100mo');
-    expect(findHeading().text()).toBe('Heading');
+    expect(findInput().attributes('value')).toBe('Advanced');
+    expect(findHeading().text()).toBe('Advanced');
     expect(findPrice().text()).toBe('$100/mo');
     expect(findFree().exists()).toBeFalsy();
   });
@@ -33,12 +33,13 @@ describe('StepRadioInput.vue', () => {
   it('Should calculates correct values if isYearlyMode enabled', () => {
     createComponent({
       props: {
+        heading: 'Arcade',
         monthlyPrice: 100,
         isYearlyMode: true,
       },
     });
 
-    expect(findInput().attributes('value')).toBe('1000yr');
+    expect(findInput().attributes('value')).toBe('Arcade');
     expect(findPrice().text()).toBe('$1000/yr');
     expect(findFree().text()).toBe('2 months free');
   });
@@ -46,13 +47,14 @@ describe('StepRadioInput.vue', () => {
   it('modelValue should be updated', async () => {
     createComponent({
       props: {
+        heading: 'Pro',
         monthlyPrice: 100,
         modelValue: '',
         'onUpdate:modelValue': (value: string) => wrapper.setProps({ modelValue: value }),
       },
     });
 
-    await findInput().setValue('100mo');
-    expect(wrapper.props('modelValue')).toBe('100mo');
+    await findInput().setValue(true);
+    expect(wrapper.props('modelValue')).toBe('Pro');
   });
 });
