@@ -1,25 +1,15 @@
 <template>
   <button
     class="paymentModeButton"
-    :class="isYearlyMode ? 'paymentModeButton--yearly' : ''"
-    @click="changePaymentMode"
+    :class="store.isYearlyMode ? 'paymentModeButton--yearly' : ''"
+    @click="store.changeIsYearlyMode()"
   ></button>
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
+import useMultiStepFormStore from '@/stores/MultiStepFormStore';
 
-const emit = defineEmits<{
-  (e: 'paymentMode', value: boolean): void
-}>();
-
-const isYearlyMode: Ref<boolean> = ref(false);
-
-/** Emit current payment mode value  */
-const changePaymentMode = () => {
-  isYearlyMode.value = !isYearlyMode.value;
-  emit('paymentMode', isYearlyMode.value);
-};
+const store = useMultiStepFormStore();
 </script>
 
 <style scoped lang="scss">

@@ -17,16 +17,14 @@
 import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { onBeforeRouteLeave } from 'vue-router';
+import useMultiStepFormStore from '@/stores/MultiStepFormStore';
+import IPersonalInfoForm from '@/interfaces/IPersonalInfoForm';
 import StepCard from '@/components/cards/StepCard.vue';
 import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
 import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';
 import StepTextInput from '@/components/StepTextInput.vue';
 
-interface PersonalInfoForm {
-  name: string;
-  email: string;
-  phone: string;
-}
+const store = useMultiStepFormStore();
 
 /** Personal info schema */
 const personalInfoSchema = object({
@@ -35,11 +33,23 @@ const personalInfoSchema = object({
   phone: string().required('Please enter your phone number'),
 });
 
-const { validate, meta } = useForm<PersonalInfoForm>({ validationSchema: personalInfoSchema });
+const {
+  validate,
+  meta,
+  values,
+  setValues,
+} = useForm<IPersonalInfoForm>({ validationSchema: personalInfoSchema });
+
+setValues({
+  name: store.personalInfo.name,
+  email: store.personalInfo.email,
+  phone: store.personalInfo.phone,
+});
 
 onBeforeRouteLeave((to, from, next) => {
   validate();
   if (meta.value.valid) {
+    store.setPersonalInfo(values);
     next();
   } else {
     next(false);

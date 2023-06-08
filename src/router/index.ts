@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import useMultiStepFormStore from '@/stores/MultiStepFormStore';
 import PersonalInfoStep from '@/widgets/MultiStepFormSteps/PersonalInfoStep.vue';
 import SelectYourPlanStep from '@/widgets/MultiStepFormSteps/SelectYourPlanStep.vue';
 import PickAddonsStep from '@/widgets/MultiStepFormSteps/PickAddonsStep.vue';
@@ -11,7 +12,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'index',
       component: HomeView,
       children: [
         {
@@ -42,6 +43,16 @@ const router = createRouter({
       ],
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  const store = useMultiStepFormStore();
+  if (to.name !== 'personal-info'
+  && (store.personalInfo.name === '' || store.personalInfo.email === '' || store.personalInfo.phone === '')) {
+    next({ name: 'personal-info' });
+  } else {
+    next();
+  }
 });
 
 export default router;

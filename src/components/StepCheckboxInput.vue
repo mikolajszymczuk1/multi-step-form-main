@@ -27,14 +27,17 @@
     </div>
 
     <div class="stepCheckboxInput__priceContainer">
-      +${{ price }}/{{ moYr }}
+      +${{ store.price(monthlyPrice) }}/{{ store.moYr }}
     </div>
   </label>
 </template>
 
 <script setup lang="ts">
 import { computed, PropType } from 'vue';
+import useMultiStepFormStore from '@/stores/MultiStepFormStore';
 import checkmarkIcon from '@/assets/svg/icon-checkmark.svg';
+
+const store = useMultiStepFormStore();
 
 const props = defineProps({
   heading: {
@@ -49,10 +52,6 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
-  isYearlyMode: {
-    type: Boolean,
-    default: false,
-  },
   modelValue: {
     type: Array as PropType<string[]>,
     default: () => [],
@@ -65,24 +64,6 @@ const emit = defineEmits<{
 
 /** Return input value */
 const inputValue = computed<string>(() => props.heading);
-
-/** Return monthly or yearly price */
-const price = computed<number>(() => {
-  if (props.isYearlyMode) {
-    return props.monthlyPrice * 10;
-  }
-
-  return props.monthlyPrice;
-});
-
-/** Based on isYearlyMode prop return 'yr' or 'mo' */
-const moYr = computed<string>(() => {
-  if (props.isYearlyMode) {
-    return 'yr';
-  }
-
-  return 'mo';
-});
 
 /** Return true if value exists in modelValue array for checkboxes */
 const isChecked = computed<boolean>(() => props.modelValue.includes(inputValue.value));

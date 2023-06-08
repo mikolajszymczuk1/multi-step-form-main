@@ -44,7 +44,7 @@ module.exports = {
         extensions: ['.ts', '.vue', '.json'],
       },
       vue: {
-        extenstion: ['.vue'],
+        extension: ['.vue'],
       },
       typescript: {},
     },

@@ -13,24 +13,23 @@
         :heading="button.heading"
         name="plan"
         :monthly-price="button.monthlyPrice"
-        v-model="selectedPlan"
-        :is-yearly-mode="isYearlyMode"
+        v-model="store.formData.selectedPlan"
       />
     </StepInputsWrapper>
 
     <div class="selectYourPlanStep__bottomBar">
       <p
         class="selectYourPlanStep__barText"
-        :class="isYearlyMode ? '' : 'selectYourPlanStep__barText--highlight'"
+        :class="store.isYearlyMode ? '' : 'selectYourPlanStep__barText--highlight'"
       >
         Monthly
       </p>
 
-      <PaymentModeButton @paymentMode="onChangePaymentMode" />
+      <PaymentModeButton />
 
       <p
         class="selectYourPlanStep__barText"
-        :class="isYearlyMode ? 'selectYourPlanStep__barText--highlight' : ''"
+        :class="store.isYearlyMode ? 'selectYourPlanStep__barText--highlight' : ''"
       >
         Yearly
       </p>
@@ -39,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
+import useMultiStepFormStore from '@/stores/MultiStepFormStore';
 
 import StepCard from '@/components/cards/StepCard.vue';
 import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
@@ -51,7 +50,7 @@ import arcadeIcon from '@/assets/svg/icon-arcade.svg';
 import advancedIcon from '@/assets/svg/icon-advanced.svg';
 import proIcon from '@/assets/svg/icon-pro.svg';
 
-const PLAN_DEFAULT_VALUE = 'Arcade';
+const store = useMultiStepFormStore();
 
 /** Radio buttons data */
 const radioButtonsData = [
@@ -59,15 +58,6 @@ const radioButtonsData = [
   { icon: advancedIcon, heading: 'Advanced', monthlyPrice: 12 },
   { icon: proIcon, heading: 'Pro', monthlyPrice: 15 },
 ];
-
-const selectedPlan: Ref<string> = ref(PLAN_DEFAULT_VALUE);
-const isYearlyMode: Ref<boolean> = ref(false);
-
-/** Change payment mode value */
-const onChangePaymentMode = (value: boolean) => {
-  isYearlyMode.value = value;
-  selectedPlan.value = PLAN_DEFAULT_VALUE;
-};
 </script>
 
 <style scoped lang="scss">
