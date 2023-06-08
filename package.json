@@ -25,7 +25,8 @@
     "vitest": "^0.29.1",
     "vue": "^3.3.4",
     "vue-router": "^4.1.6",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "@pinia/testing": "^0.1.2"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.0",

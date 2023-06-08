@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import IState from '@/interfaces/IState';
-import IPersonalInfoForm from '@/interfaces/IPersonalInfoForm';
+import type IState from '@/interfaces/IState';
+import type IPersonalInfoForm from '@/interfaces/IPersonalInfoForm';
 
 const YEARS_SHORT = 'yr';
 const MONTHS_SHORT = 'mo';

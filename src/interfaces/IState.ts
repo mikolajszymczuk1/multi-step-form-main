@@ -1,5 +1,5 @@
-import IFormData from './IFormData';
-import IPersonalInfoForm from './IPersonalInfoForm';
+import type IFormData from './IFormData';
+import type IPersonalInfoForm from './IPersonalInfoForm';
 
 export default interface IState {
   personalInfo: IPersonalInfoForm,
