@@ -1,3 +1,4 @@
 {
-  "include": [".eslintrc.js", "src/router/index.ts", "src/stores/*.ts", "src/interfaces/*.ts"]
+  "include": [".eslintrc.js", "src/router/index.ts", "src/stores/*.ts", "src/interfaces/*.ts"],
+  "extends": "./tsconfig.app.json"
 }
