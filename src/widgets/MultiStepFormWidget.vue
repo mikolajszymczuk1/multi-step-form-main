@@ -15,6 +15,7 @@
       <div
         class="multiStepFormWidget__bottomBar"
         :class="isNotFirstStep ? 'multiStepFormWidget__bottomBar--space-between' : ''"
+        v-if="route.name !== 'thank-you'"
       >
         <StepButton v-if="isNotFirstStep" :go-to="prevStep">Go Back</StepButton>
         <StepButton is-next :go-to="nextStep">Next Step</StepButton>

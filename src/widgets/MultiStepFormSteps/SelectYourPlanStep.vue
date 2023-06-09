@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import useMultiStepFormStore from '@/stores/MultiStepFormStore';
+import { radioButtonsData } from '@/data/inputsData';
 
 import StepCard from '@/components/cards/StepCard.vue';
 import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
@@ -46,18 +47,7 @@ import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';
 import StepRadioInput from '@/components/StepRadioInput.vue';
 import PaymentModeButton from '@/components/buttons/PaymentModeButton.vue';
 
-import arcadeIcon from '@/assets/svg/icon-arcade.svg';
-import advancedIcon from '@/assets/svg/icon-advanced.svg';
-import proIcon from '@/assets/svg/icon-pro.svg';
-
 const store = useMultiStepFormStore();
-
-/** Radio buttons data */
-const radioButtonsData = [
-  { icon: arcadeIcon, heading: 'Arcade', monthlyPrice: 9 },
-  { icon: advancedIcon, heading: 'Advanced', monthlyPrice: 12 },
-  { icon: proIcon, heading: 'Pro', monthlyPrice: 15 },
-];
 </script>
 
 <style scoped lang="scss">

@@ -34,7 +34,8 @@ const props = defineProps({
 });
 
 /** Return true if current path is equal to step id */
-const isActive = computed(() => route.name === props.stepId);
+const isActive = computed(() => route.name === props.stepId
+  || (props.stepId === 'finishing-up' && route.name === 'thank-you'));
 </script>
 
 <style lang="scss" scoped>
