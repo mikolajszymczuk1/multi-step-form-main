@@ -5,9 +5,7 @@ import type { ComponentPublicInstance } from 'vue';
 
 describe('StepTextInput.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
-  const createComponent = (config = {}) => {
-    wrapper = mount(StepTextInput, config);
-  };
+  const createComponent = (config = {}) => { wrapper = mount(StepTextInput, config); };
   const findLabel = () => wrapper.find('[data-test="label"]');
   const findInput = () => wrapper.find('[data-test="input"]');
   const findMessage = () => wrapper.find('[data-test="message"]');

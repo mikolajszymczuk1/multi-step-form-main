@@ -72,15 +72,16 @@ const store = useMultiStepFormStore();
 
 /** Return calculated plan price */
 const planPrice = computed<number>(() => {
-  const price = radioButtonsData.find((el: IRadioButton) => el.heading === store.formData.selectedPlan).monthlyPrice;
-  return store.price(price);
+  // eslint-disable-next-line max-len
+  const radioButton = radioButtonsData.find((el: IRadioButton) => el.heading === store.formData.selectedPlan) as IRadioButton;
+  return store.price(radioButton.monthlyPrice);
 });
 
 /** Return array of objects with addons' headings and prices */
 const addonsWithPrices = computed<AddonWithPrice[]>(() => {
   const addons: AddonWithPrice[] = [];
   store.formData.selectedAddons.forEach((addon: string) => {
-    const addonToAdd: ICheckboxButton = checkboxButtonsData.find((el: ICheckboxButton) => el.heading === addon);
+    const addonToAdd = checkboxButtonsData.find((el: ICheckboxButton) => el.heading === addon) as ICheckboxButton;
     addons.push({ heading: addonToAdd.heading, price: store.price(addonToAdd.monthlyPrice) });
   });
 

@@ -18,7 +18,7 @@ import { useForm } from 'vee-validate';
 import { object, string } from 'yup';
 import { onBeforeRouteLeave } from 'vue-router';
 import useMultiStepFormStore from '@/stores/MultiStepFormStore';
-import IPersonalInfoForm from '@/interfaces/IPersonalInfoForm';
+import type IPersonalInfoForm from '@/interfaces/IPersonalInfoForm';
 import StepCard from '@/components/cards/StepCard.vue';
 import StepInputsWrapper from '@/components/StepInputsWrapper.vue';
 import StepHeadingTextBlock from '@/components/StepHeadingTextBlock.vue';

@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue';
+import { computed, type PropType } from 'vue';
 import useMultiStepFormStore from '@/stores/MultiStepFormStore';
 import checkmarkIcon from '@/assets/svg/icon-checkmark.svg';
 
