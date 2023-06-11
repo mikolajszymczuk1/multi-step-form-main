@@ -1,18 +1,38 @@
 <template>
-<div class="stepHeadingTextBlock">
-  <h1 class="stepHeadingTextBlock__title" data-test="title">
-    <slot name="title"></slot>
-  </h1>
+  <div
+    class="stepHeadingTextBlock"
+    :class="textCenter ? 'stepHeadingTextBlock--textCenter' : ''"
+  >
+    <div class="stepHeadingTextBlock__topContent" data-test="topContent">
+      <slot name="topContent"></slot>
+    </div>
 
-  <p class="stepHeadingTextBlock__underTitleText" data-test="text">
-    <slot name="text"></slot>
-  </p>
-</div>
+    <h1 class="stepHeadingTextBlock__title" data-test="title">
+      <slot name="title"></slot>
+    </h1>
+
+    <p class="stepHeadingTextBlock__underTitleText" data-test="text">
+      <slot name="text"></slot>
+    </p>
+  </div>
 </template>
+
+<script setup lang="ts">
+defineProps({
+  textCenter: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 
 <style scoped lang="scss">
 .stepHeadingTextBlock {
   font-family: $ubuntu;
+
+  &--textCenter {
+    text-align: center;
+  }
 
   &__title {
     margin-bottom: 9px;
