@@ -66,6 +66,16 @@ const prevStep = computed<string>(() => {
 
 <style scoped lang="scss">
 .multiStepFormWidget {
+  @media screen and (min-width: $sm) {
+    margin: 5% auto;
+
+    width: 80%;
+
+    background-color: $White;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
   &__topBanner {
     display: flex;
     justify-content: center;
@@ -83,7 +93,7 @@ const prevStep = computed<string>(() => {
   }
 
   &__mainContainer {
-
+    position: relative;
   }
 
   &__singleStepContainer {
@@ -104,6 +114,10 @@ const prevStep = computed<string>(() => {
     height: 72px;
 
     background-color: $White;
+
+    @media screen and (min-width: $sm) {
+      position: relative;
+    }
 
     &--space-between {
       justify-content: space-between;

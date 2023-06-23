@@ -15,6 +15,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @use "@/assets/scss/utils/variables" as *;
+          @use "@/assets/scss/utils/breakpoints" as *;
         `,
       },
     },

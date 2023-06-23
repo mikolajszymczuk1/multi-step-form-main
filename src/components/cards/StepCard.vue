@@ -15,5 +15,10 @@
   border-radius: 10px;
   transform: translateY(-73px);
   box-shadow: 0 25px 40px -20px rgba(black, 0.1);
+
+  @media screen and (min-width: 648px) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 }
 </style>
