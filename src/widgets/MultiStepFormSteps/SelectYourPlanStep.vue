@@ -5,7 +5,7 @@
       <template #text>You have the option of monthly or yearly billing.</template>
     </StepHeadingTextBlock>
 
-    <StepInputsWrapper>
+    <StepInputsWrapper class="selectYourPlanStep__inputsWrapper">
       <StepRadioInput
         v-for="button in radioButtonsData"
         :key="button.icon"
@@ -52,6 +52,14 @@ const store = useMultiStepFormStore();
 
 <style scoped lang="scss">
 .selectYourPlanStep {
+  &__inputsWrapper {
+    @media screen and (min-width: $lg) {
+      flex-direction: row;
+      column-gap: 18px;
+      row-gap: 0;
+    }
+  }
+
   &__bottomBar {
     display: flex;
     align-items: center;

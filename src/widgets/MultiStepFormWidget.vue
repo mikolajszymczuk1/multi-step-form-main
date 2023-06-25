@@ -76,6 +76,12 @@ const prevStep = computed<string>(() => {
     overflow: hidden;
   }
 
+  @media screen and (min-width: $md) {
+    display: flex;
+
+    min-height: 600px;
+  }
+
   &__topBanner {
     display: flex;
     justify-content: center;
@@ -90,10 +96,39 @@ const prevStep = computed<string>(() => {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    @media screen and (min-width: $sm) {
+      align-items: center;
+
+      padding-top: 0;
+    }
+
+    @media screen and (min-width: $md) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 32px;
+
+      margin: 16px 0 16px 16px;
+      padding: 40px 0 0 32px;
+
+      width: 274px;
+      height: auto;
+
+      border-radius: 10px;
+      background-image: url('@/assets/svg/bg-sidebar-desktop.svg');
+    }
   }
 
   &__mainContainer {
     position: relative;
+
+    @media screen and (min-width: $md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
   }
 
   &__singleStepContainer {
@@ -117,6 +152,14 @@ const prevStep = computed<string>(() => {
 
     @media screen and (min-width: $sm) {
       position: relative;
+    }
+
+    @media screen and (min-width: $md) {
+      padding: 16px 24px;
+    }
+
+    @media screen and (min-width: $lg) {
+      padding: 0 100px 32px 100px;
     }
 
     &--space-between {

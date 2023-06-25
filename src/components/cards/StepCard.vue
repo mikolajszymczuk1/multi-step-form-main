@@ -16,9 +16,17 @@
   transform: translateY(-73px);
   box-shadow: 0 25px 40px -20px rgba(black, 0.1);
 
-  @media screen and (min-width: 648px) {
+  @media screen and (min-width: $sm) {
     transform: translateY(0);
     box-shadow: none;
+  }
+
+  @media screen and (min-width: $md) {
+    width: auto;
+  }
+
+  @media screen and (min-width: $lg) {
+    padding: 56px 100px 0 100px;
   }
 }
 </style>

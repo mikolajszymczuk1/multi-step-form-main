@@ -89,6 +89,13 @@ const emitChangeValue = (e: Event) => {
   transition: border-color 100ms ease-in-out,
               background-color 100ms ease-in-out;
 
+  @media screen and (min-width: $lg) {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 39px;
+    flex: 1;
+  }
+
   &--selected {
     border-color: $PurplishBlue;
     background-color: $Alabaster;

@@ -76,6 +76,10 @@ const isActive = computed(() => route.name === props.stepId
     display: none;
 
     margin-left: 16px;
+
+    @media screen and (min-width: $md) {
+      display: block;
+    }
   }
 
   &__stepText {
