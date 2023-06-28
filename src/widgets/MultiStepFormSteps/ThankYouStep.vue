@@ -30,6 +30,10 @@ import thankYouIcon from '@/assets/svg/icon-thank-you.svg';
   padding-top: 79px;
   padding-bottom: 79px;
 
+  @media screen and (min-width: $md) {
+    padding-top: 181px;
+  }
+
   &__thankYouIcon {
     margin-bottom: 24px;
 

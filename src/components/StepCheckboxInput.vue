@@ -98,9 +98,21 @@ const emitChangeValue = (e: Event) => {
   border-radius: 8px;
   border: solid 1px $LightBray;
   transition: border-color 150ms ease-out;
+  cursor: pointer;
+
+  @media screen and (min-width: $xlg) {
+    padding: 0 24px;
+
+    height: 81px;
+  }
+
+  &:hover {
+    border-color: $PurplishBlue;
+  }
 
   &--checked {
     border-color: $PurplishBlue;
+    background-color: $Alabaster;
   }
 
   &__input {
@@ -128,6 +140,10 @@ const emitChangeValue = (e: Event) => {
     background-color: $White;
     transition: background-color 100ms ease-out;
 
+    @media screen and (min-width: $xlg) {
+      margin-right: 24px;
+    }
+
     #{ $self }--checked & {
       background-color: $PurplishBlue;
       border: 0;
@@ -153,18 +169,32 @@ const emitChangeValue = (e: Event) => {
     font-size: 0.875rem;
     font-weight: 500;
     color: $MarineBlue;
+
+    @media screen and (min-width: $xlg) {
+      margin-bottom: 7px;
+
+      font-size: 1rem;
+    }
   }
 
   &__underHeading {
     font-size: 0.75rem;
     color: $CoolBray;
     font-weight: 400;
+
+    @media screen and (min-width: $xlg) {
+      font-size: .9375rem;
+    }
   }
 
   &__priceContainer {
     font-size: 0.75rem;
     color: $PurplishBlue;
     font-family: $ubuntu;
+
+    @media screen and (min-width: $xlg) {
+      font-size: .9375rem;
+    }
   }
 }
 </style>

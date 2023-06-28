@@ -107,6 +107,11 @@ const totalPrice = computed<number>(() => {
     border-radius: 8px;
 
     font-family: $ubuntu;
+
+    @media screen and (min-width: $xlg) {
+      margin-top: 40px;
+      padding: 16px 24px 24px 24px;
+    }
   }
 
   &__heading {
@@ -115,11 +120,23 @@ const totalPrice = computed<number>(() => {
     color: $MarineBlue;
     font-size: 0.875rem;
     font-weight: 500;
+
+    @media screen and (min-width: $xlg) {
+      margin-bottom: 7px;
+
+      font-size: 1rem;
+    }
   }
 
   &__changePlanLink {
+    transition: color 200ms ease-out;
+
     color: $CoolBray;
     font-size: 0.875rem;
+
+    &:hover {
+      color: $PurplishBlue;
+    }
   }
 
   &__price {
@@ -128,11 +145,19 @@ const totalPrice = computed<number>(() => {
 
     &--bold {
       font-weight: 700;
+
+      @media screen and (min-width: $xlg) {
+        font-size: 1rem;
+      }
     }
 
     &--color {
       color: $PurplishBlue;
       font-size: 1rem;
+
+      @media screen and (min-width: $xlg) {
+        font-size: 1.25rem;
+      }
     }
   }
 
@@ -145,6 +170,13 @@ const totalPrice = computed<number>(() => {
     margin-top: 12px;
 
     border-top: solid 1px rgba($CoolBray, 0.2);
+
+    @media screen and (min-width: $xlg) {
+      row-gap: 16px;
+
+      margin-top: 24px;
+      padding-top: 16px;
+    }
   }
 
   &__colText {

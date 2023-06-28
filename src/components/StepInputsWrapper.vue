@@ -24,8 +24,18 @@ defineProps({
 
   margin-top: 22px;
 
+  @media screen and (min-width: $xlg) {
+    row-gap: 16px;
+
+    margin-top: 40px;
+  }
+
   &--largeSpace {
     row-gap: 16px;
+
+    @media screen and (min-width: $xlg) {
+      row-gap: 24px;
+    }
   }
 }
 </style>

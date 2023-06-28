@@ -5,6 +5,7 @@
     <input
       :id="name"
       class="stepTextInput__input"
+      :class="errorMessage ? 'stepTextInput__input--error' : ''"
       v-model="value"
       type="text"
       :name="name"
@@ -49,6 +50,12 @@ const { errorMessage, value } = useField(() => props.name);
     font-family: $ubuntu;
     font-size: .75rem;
     color: $MarineBlue;
+
+    @media screen and (min-width: $xlg) {
+      margin-bottom: 8px;
+
+      font-size: .875rem;
+    }
   }
 
   &__input {
@@ -65,12 +72,24 @@ const { errorMessage, value } = useField(() => props.name);
     font-size: .9375rem;
     font-weight: 500;
 
+    @media screen and (min-width: $xlg) {
+      height: 48px;
+
+      border-radius: 8px;
+
+      font-size: 1rem;
+    }
+
     &::placeholder {
       color: $CoolBray;
     }
 
     &:focus {
       outline: solid 1px $PurplishBlue;
+    }
+
+    &--error {
+      outline: solid 1px $StrawberryRed !important;
     }
   }
 

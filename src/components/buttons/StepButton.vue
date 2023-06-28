@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     class="stepButton"
-    :class="isNext ? 'stepButton--next' : ''"
+    :class="[isNext ? 'stepButton--next' : '', isFinishing ? 'stepButton--finish' : '']"
     :to="{ name: goTo }"
   >
     <slot></slot>
@@ -19,6 +19,10 @@ defineProps({
   goTo: {
     type: String,
   },
+  isFinishing: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -29,14 +33,40 @@ defineProps({
   font-size: .875rem;
   color: $CoolBray;
   text-decoration: none;
+  transition: color 150ms ease-in-out;
+
+  @media screen and (min-width: $xlg) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    color: $MarineBlue;
+  }
 
   &--next {
     padding: 12px 16px;
 
     background-color: $MarineBlue;
     border-radius: 4px;
+    transition: opacity 150ms ease-in-out;
 
     color: $White;
+
+    @media screen and (min-width: $xlg) {
+      padding: 14px 24px 16px 24px;
+
+      border-radius: 8px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+      color: white;
+    }
+  }
+
+  &--finish {
+    background-color: $PurplishBlue;
   }
 }
 </style>

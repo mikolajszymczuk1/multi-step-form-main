@@ -66,12 +66,17 @@ const store = useMultiStepFormStore();
     justify-content: center;
     column-gap: 24px;
 
+    padding: 13px 0 14px 0;
     margin-top: 24px;
 
     background-color: $Alabaster;
     border-radius: 8px;
 
     font-family: $ubuntu;
+
+    @media screen and (min-width: $xlg) {
+      margin-top: 32px;
+    }
   }
 
   &__barText {

@@ -88,12 +88,17 @@ const emitChangeValue = (e: Event) => {
   border: 1px solid $LightBray;
   transition: border-color 100ms ease-in-out,
               background-color 100ms ease-in-out;
+  cursor: pointer;
 
   @media screen and (min-width: $lg) {
     flex-direction: column;
     align-items: flex-start;
     row-gap: 39px;
     flex: 1;
+
+    &:hover {
+      border-color: $PurplishBlue;
+    }
   }
 
   &--selected {

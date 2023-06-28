@@ -39,6 +39,12 @@ defineProps({
 
     color: $MarineBlue;
     font-size: 1.5rem;
+
+    @media screen and (min-width: $xlg) {
+      margin-bottom: 11px;
+
+      font-size: 2rem;
+    }
   }
 
   &__underTitleText {

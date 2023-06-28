@@ -18,7 +18,9 @@
         v-if="route.name !== 'thank-you'"
       >
         <StepButton v-if="isNotFirstStep" :go-to="prevStep">Go Back</StepButton>
-        <StepButton is-next :go-to="nextStep">Next Step</StepButton>
+        <StepButton is-next :go-to="nextStep" :isFinishing="isFinishingUpStep">
+          {{ isFinishingUpStep ? 'Confirm' : 'Next Step' }}
+        </StepButton>
       </div>
     </div>
   </div>
@@ -38,6 +40,9 @@ const steps = router.options.routes[0].children;
 
 /** Return true if current path is not first step */
 const isNotFirstStep = computed(() => route.path !== '/');
+
+/** Return true if current step is finishing up step */
+const isFinishingUpStep = computed(() => route.name === 'finishing-up');
 
 /** Return next step name */
 const nextStep = computed<string>(() => {
@@ -80,6 +85,10 @@ const prevStep = computed<string>(() => {
     display: flex;
 
     min-height: 600px;
+  }
+
+  @media screen and (min-width: $lg) {
+    width: 940px;
   }
 
   &__topBanner {
