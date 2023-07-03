@@ -19,14 +19,14 @@
       </div>
 
       <div class="stepCheckboxInput__headingsContainer">
-        <h3 class="stepCheckboxInput__heading">{{ heading }}</h3>
-        <p class="stepCheckboxInput__underHeading">
+        <h3 class="stepCheckboxInput__heading" data-test="heading">{{ heading }}</h3>
+        <p class="stepCheckboxInput__underHeading" data-test="under-heading">
           <slot></slot>
         </p>
       </div>
     </div>
 
-    <div class="stepCheckboxInput__priceContainer">
+    <div class="stepCheckboxInput__priceContainer" data-test="price">
       +${{ store.price(monthlyPrice) }}/{{ store.moYr }}
     </div>
   </label>

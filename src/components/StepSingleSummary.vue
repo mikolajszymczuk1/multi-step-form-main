@@ -1,10 +1,10 @@
 <template>
   <div class="stepSingleSummary">
-    <div class="stepSingleSummary__leftCol">
+    <div class="stepSingleSummary__leftCol" data-test="left-col">
       <slot name="leftCol"></slot>
     </div>
 
-    <div class="stepSingleSummary__rightCol">
+    <div class="stepSingleSummary__rightCol" data-test="right-col">
       <slot name="rightCol"></slot>
     </div>
   </div>
