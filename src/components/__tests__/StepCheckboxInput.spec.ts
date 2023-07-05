@@ -44,8 +44,9 @@ describe('StepCheckboxInput.vue', () => {
 
   it('should update modelValue when checkbox is checked', async () => {
     await findCheckbox().setValue(true);
-    expect(wrapper.emitted('update:modelValue')).toHaveLength(1);
-    expect(wrapper.emitted('update:modelValue')[0]).toEqual([['Checkbox Heading']]);
+    const emittedValue = wrapper.emitted('update:modelValue');
+    expect(emittedValue).toHaveLength(1);
+    if (emittedValue) expect(emittedValue[0]).toEqual([['Checkbox Heading']]);
   });
 
   it('should render the heading and under heading correctly', () => {
