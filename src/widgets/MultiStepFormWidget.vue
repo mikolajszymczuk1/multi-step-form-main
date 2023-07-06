@@ -91,6 +91,10 @@ const prevStep = computed<string>(() => {
     width: 940px;
   }
 
+  @media screen and (min-width: $xlg) {
+    margin-top: 105px;
+  }
+
   &__topBanner {
     display: flex;
     justify-content: center;
