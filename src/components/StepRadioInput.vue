@@ -5,6 +5,7 @@
       isChecked ? 'stepRadioInput--selected' : '',
       store.isYearlyMode ? 'stepRadioInput--flexStart' : ''
     ]"
+    :data-test="inputValue.toLocaleLowerCase()"
   >
     <input
       class="stepRadioInput__input"

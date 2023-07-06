@@ -8,7 +8,7 @@
     <div class="finishingUpStep__summaryContainer">
       <StepSingleSummary>
         <template #leftCol>
-          <h3 class="finishingUpStep__heading">
+          <h3 class="finishingUpStep__heading" data-test="finishing-up-heading">
             {{ store.formData.selectedPlan }} ({{ store.isYearlyMode ? 'Yearly' : 'Monthly' }})
           </h3>
 

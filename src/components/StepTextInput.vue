@@ -13,7 +13,7 @@
       data-test="input"
     >
 
-    <div class="stepTextInput__errorMessage" data-test="message">{{ errorMessage }}</div>
+    <div :id="`${name}-error`" class="stepTextInput__errorMessage" data-test="message">{{ errorMessage }}</div>
   </div>
 </template>
 

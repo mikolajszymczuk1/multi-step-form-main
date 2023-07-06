@@ -3,6 +3,7 @@
     class="stepButton"
     :class="[isNext ? 'stepButton--next' : '', isFinishing ? 'stepButton--finish' : '']"
     :to="{ name: goTo }"
+    :data-test="isNext ? 'next-step' : 'prev-step'"
   >
     <slot></slot>
   </RouterLink>
