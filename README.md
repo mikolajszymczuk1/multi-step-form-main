@@ -1,25 +1,80 @@
-# multi-step-form-main
+# Frontend Mentor - Multi-step form solution
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+- [Run Project](#how-to-run-project)
 
-## Type Support for `.vue` Imports in TS
+## Overview
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### The challenge
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Users should be able to:
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
 
-## Customize configuration
+### Screenshot
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/vue-3-pinia-scss-cypress-vitest-typescript-6Mvjva1zad)
+- Live Site URL: [Live](https://sage-kangaroo-e1b936.netlify.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Flexbox
+- Mobile-first workflow
+- [Vue.js](https://vuejs.org/) - front-end framework
+- [SCSS](https://sass-lang.com/) - CSS Preprocessor
+- [VueUtils](https://test-utils.vuejs.org/) - Testing library for vue 3
+- [Vitest](https://vitest.dev/) - Testing library for frontend projects
+- [Cypress](https://www.cypress.io/) - E2E testing library
+- [Pinia](https://pinia.vuejs.org/) - State library for vue 3
+- [Typescript](https://www.typescriptlang.org/) - Boost for javascript that add types to code and more...
+
+
+### What I learned
+
+Typescript config and project structure
+
+### Continued development
+
+I want to complete these challenges using vue :)
+
+## Author
+
+- Github - [Mikołaj Szymczuk](https://github.com/mikolajszymczuk1)
+- Frontend Mentor - [@mikolajszymczuk1](https://www.frontendmentor.io/profile/mikolajszymczuk1)
+
+## Acknowledgments
+
+LOVE VUE <3
+
+<br>
+<br>
 
 ## Project Setup
 
