@@ -2,6 +2,7 @@
   <label
     class="stepCheckboxInput"
     :class="isChecked ? 'stepCheckboxInput--checked': ''"
+    data-test="checkbox-input"
   >
     <input
       class="stepCheckboxInput__input"

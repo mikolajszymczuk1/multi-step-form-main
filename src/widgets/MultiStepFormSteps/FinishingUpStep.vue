@@ -25,7 +25,7 @@
       <div class="finishingUpStep__addonsContainer">
         <StepSingleSummary v-for="addon in addonsWithPrices" :key="addon.heading">
           <template #leftCol>
-            <h3 class="finishingUpStep__colText">{{ addon.heading }}</h3>
+            <h3 class="finishingUpStep__colText" data-test="addon-heading">{{ addon.heading }}</h3>
           </template>
 
           <template #rightCol>
@@ -42,7 +42,10 @@
         </template>
 
         <template #rightCol>
-          <div class="finishingUpStep__price finishingUpStep__price--color finishingUpStep__price--bold">
+          <div
+            class="finishingUpStep__price finishingUpStep__price--color finishingUpStep__price--bold"
+            data-test="summary-price"
+          >
             +${{ totalPrice }}/{{ store.moYr }}
           </div>
         </template>

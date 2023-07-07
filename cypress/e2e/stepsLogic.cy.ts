@@ -64,25 +64,62 @@ describe('Steps logic', () => {
     });
 
     it('Yearly plan should correctly be selected in finishing step', () => {
+      enterTestDataToInputs();
+      goToNextStep();
+      cy.get('[data-test="payment-mode-button"]').click();
 
+      ['Arcade', 'Advanced', 'Pro'].forEach((inputName: string) => {
+        cy.get(`[data-test="${inputName.toLocaleLowerCase()}"]`).click();
+        cy.get(`[data-test="input"][value="${inputName}"]`).should('be.checked', true);
+        goToNextStep();
+        goToNextStep();
+        cy.get('[data-test="finishing-up-heading"]').should('contain', `${inputName} (Yearly)`);
+
+        goToPrevStep();
+        goToPrevStep();
+      });
     });
   });
 
   describe('Pick Addons step', () => {
-    it('', () => {
+    it('Addons should be added correclty in finishing step', () => {
+      enterTestDataToInputs();
+      goToNextStep();
+      goToNextStep();
 
+      cy.get('[data-test="checkbox-input"]').each(($el: JQuery<Element>) => {
+        cy.wrap($el).click();
+      });
+
+      goToNextStep();
+
+      const correctAddonsNames: string[] = ['Online service', 'Larger storage', 'Customizable profile'];
+      cy.get('[data-test="addon-heading"]').each(($el: JQuery<Element>, index: number) => {
+        cy.wrap($el).invoke('text').should('contain', correctAddonsNames[index]);
+      });
     });
   });
 
   describe('Finishing Up step', () => {
-    it('', () => {
+    it('After select items, should show correct price', () => {
+      enterTestDataToInputs();
+      goToNextStep();
+      goToNextStep();
 
+      cy.get('[data-test="checkbox-input"]').each(($el: JQuery<Element>) => {
+        cy.wrap($el).click();
+      });
+
+      goToNextStep();
+      cy.get('[data-test="summary-price"]').should('contain', '+$14/mo');
     });
   });
 
   describe('Thank You step', () => {
-    it('', () => {
-
+    it('Should show thank you message', () => {
+      enterTestDataToInputs();
+      for (let i = 0; i < 4; i += 1) goToNextStep();
+      checkTitle('Thank you!');
     });
   });
 });

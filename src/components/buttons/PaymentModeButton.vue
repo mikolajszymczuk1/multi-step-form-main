@@ -3,6 +3,7 @@
     class="paymentModeButton"
     :class="store.isYearlyMode ? 'paymentModeButton--yearly' : ''"
     @click="store.changeIsYearlyMode()"
+    data-test="payment-mode-button"
   ></button>
 </template>
 
