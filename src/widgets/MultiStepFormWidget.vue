@@ -9,7 +9,16 @@
 
     <div class="multiStepFormWidget__mainContainer">
       <div class="multiStepFormWidget__singleStepContainer">
-        <RouterView />
+        <RouterView v-slot="{ Component }">
+          <Transition
+            type="animation"
+            enter-active-class="animate__animated animate__zoomInDown animate__fast"
+            leave-active-class="animate__animatedanimate__zoomOutUp animate__fast"
+            mode="out-in"
+          >
+            <Component :is="Component" />
+          </Transition>
+        </RouterView>
       </div>
 
       <div
@@ -93,6 +102,8 @@ const prevStep = computed<string>(() => {
 
   @media screen and (min-width: $xlg) {
     margin-top: 105px;
+
+    box-shadow: 0 25px 40px -20px rgba(black, 0.095);
   }
 
   &__topBanner {
